@@ -1,0 +1,27 @@
+plugins {
+    id 'java'                 // Applies the Java plugin for compiling Java projects
+    id 'application'          // Adds the application plugin for running Java applications
+}
+
+application {
+    mainClass = 'org.example.Main'       // This specifies the main class where the program starts, i.e., the one with the 'main' method
+}
+
+group 'org.example'          // Optional identifier for your organization or project (not essential)
+version '1.0-SNAPSHOT'       // Version of your project (can be useful for versioning your application)
+
+sourceCompatibility = 1.8    // Ensures the project is compatible with Java version 8 (you can change this to a later version if needed)
+
+repositories {
+    mavenCentral()           // Specifies where Gradle should look for dependencies (Maven Central is a popular online repository)
+}
+
+dependencies {
+    // JUnit 5 dependencies for unit testing
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()       // Configures Gradle to use JUnit 5 for running tests
+}
